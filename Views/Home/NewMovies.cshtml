@@ -1,0 +1,43 @@
+﻿@model Mission06_Hair.Models.NewMovie
+@* header *@
+<h1>Add a New Movie</h1>
+
+<form method="post">
+	@* all the different input fields *@
+	<label asp-for="Category">Category</label>
+	<input asp-for="Category"/>
+	<br />
+	<label asp-for="Title">Title</label>
+	<input asp-for="Title" required />
+	<br />
+	<label asp-for="Year">Year</label>
+	<input asp-for="Year" required />
+	<br />
+	<label asp-for="Director">Director</label>
+	<input asp-for="Director" required />
+	<br />
+	@* this has a drop down for ratings *@
+	<label asp-for="Rating">Rating</label>
+	<select asp-for="Rating" id="Rating" name="Rating" required>
+		<option value="G">G</option>
+		<option value="PG">PG</option>
+		<option value="PG-13">PG-13</option>
+		<option value="R">R</option>
+	</select>
+	<br />
+	@* drop down for edited *@
+	<label asp-for="Edited">Edited</label>
+	<select asp-for="Edited" id="Edited" name="Edited">
+		<option value="Yes">Yes</option>
+		<option value="No">No</option>
+	</select>
+	<br />
+	<label asp-for="LentTo">Lent to</label>
+	<input asp-for="LentTo" />
+	<br />
+	<label asp-for="Notes">Notes</label>
+	<input asp-for="Notes" maxlength="25"/>
+	<br />
+	@* submit button *@
+	<button type="submit">Submit New Movie</button>
+</form>

@@ -1,0 +1,46 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+/*button css*/
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+/*body css*/
+body {
+    font-family: "Proxima Nova", "Helvetica", sans-serif;
+    background-color: #002E5D;
+    color: #FFFFFF;
+    margin-bottom: 60px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/*footer css*/
+footer {
+    background-color: ghostwhite
+}
+
+.main-content {
+    flex: 1;
+}
+/*containers css*/
+.container {
+    background-color: #FFFFFF;
+    color: #002E5D;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
