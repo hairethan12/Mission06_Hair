@@ -10,8 +10,8 @@ using Mission06_Hair.Models;
 namespace Mission06_Hair.Migrations
 {
     [DbContext(typeof(NewMovieContext))]
-    [Migration("20250215060718_Initial")]
-    partial class Initial
+    [Migration("20250219165605_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

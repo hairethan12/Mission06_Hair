@@ -33,7 +33,9 @@ namespace Mission06_Hair.Controllers
         public IActionResult NewMovies(NewMovie response)
         {
             _context.NewMovies.Add(response);
+            Console.WriteLine("Added new movie: " + response.Title);
             _context.SaveChanges();
+            Console.WriteLine("Changes saved to database");
 
             return View("Confirmation", response);
         }
