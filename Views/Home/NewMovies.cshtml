@@ -2,42 +2,61 @@
 @* header *@
 <h1>Add a New Movie</h1>
 
-<form method="post" asp-action="NewMovies">
+<form method="post">
+
+	<input type="hidden" asp-for="MovieID" />
+
 	@* all the different input fields *@
-	<label asp-for="Category">Category</label>
-	<input asp-for="Category"/>
-	<br />
+	<select asp-for="CategoryId" required>
+		<option value="">Select a Category</option>
+		@if (ViewBag.Categories != null)
+		{
+			@foreach (Category m in ViewBag.Categories)
+			{
+				<option value="@m.CategoryId">@m.CategoryName</option>
+			}
+		}
+	</select>
+	<br /> <br />
 	<label asp-for="Title">Title</label>
 	<input asp-for="Title" required />
-	<br />
+	<br /> <br />
 	<label asp-for="Year">Year</label>
-	<input asp-for="Year" required />
-	<br />
+	<input asp-for="Year" min="1888" required />
+	<br /> <br />
 	<label asp-for="Director">Director</label>
-	<input asp-for="Director" required />
-	<br />
+	<input asp-for="Director" />
+	<br /> <br />
 	@* this has a drop down for ratings *@
 	<label asp-for="Rating">Rating</label>
-	<select asp-for="Rating" id="Rating" name="Rating" required>
+	<select asp-for="Rating" id="Rating" name="Rating" >
 		<option value="G">G</option>
 		<option value="PG">PG</option>
 		<option value="PG-13">PG-13</option>
 		<option value="R">R</option>
 	</select>
-	<br />
+	<br /> <br />
 	@* drop down for edited *@
 	<label asp-for="Edited">Edited</label>
-	<select asp-for="Edited" id="Edited" name="Edited">
-		<option value="Yes">Yes</option>
-		<option value="No">No</option>
+	<select asp-for="Edited" id="Edited" name="Edited" required>
+		<option value="false">No</option>
+		<option value="true">Yes</option>
 	</select>
-	<br />
+	<br /> <br />
+	<label asp-for="CopyToPlex">Copied to Plex?</label>
+	<select asp-for="CopyToPlex" id="CopyToPlex" name="CopyToPlex" required>
+		<option value="false">No</option>
+		<option value="true">Yes</option>
+	</select>
+	<br /> <br />
 	<label asp-for="LentTo">Lent to</label>
 	<input asp-for="LentTo" />
-	<br />
+	<br /> <br />
 	<label asp-for="Notes">Notes</label>
 	<input asp-for="Notes" maxlength="25"/>
-	<br />
+	<br /> <br />
 	@* submit button *@
 	<button type="submit">Submit New Movie</button>
+
+	<div asp-validation-summary="All"></div>
 </form>
