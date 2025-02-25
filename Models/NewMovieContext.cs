@@ -9,7 +9,7 @@ namespace Mission06_Hair.Models
         {
         }
 
-        public DbSet<NewMovie> NewMovies { get; set; }
+        public DbSet<NewMovie> Movies { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

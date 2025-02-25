@@ -37,7 +37,7 @@ namespace Mission06_Hair.Controllers
         {
             if (ModelState.IsValid) 
             {
-                _context.NewMovies.Add(response);
+                _context.Movies.Add(response);
                 Console.WriteLine("Added new movie: " + response.Title);
                 _context.SaveChanges();
                 Console.WriteLine("Changes saved to database");
@@ -52,7 +52,7 @@ namespace Mission06_Hair.Controllers
 
         public IActionResult MovieList()
         {
-            var NewMovies = _context.NewMovies.ToList();
+            var NewMovies = _context.Movies.ToList();
 
             return View(NewMovies);
         }
@@ -60,7 +60,7 @@ namespace Mission06_Hair.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _context.NewMovies
+            var recordToEdit = _context.Movies
                 .Single(x => x.MovieID == id);
 
             ViewBag.Categories = _context.Categories
@@ -82,7 +82,7 @@ namespace Mission06_Hair.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var recordToDelete = _context.NewMovies
+            var recordToDelete = _context.Movies
                 .Single(x => x.MovieID == id);
 
             return View(recordToDelete);
@@ -91,7 +91,7 @@ namespace Mission06_Hair.Controllers
         [HttpPost]
         public IActionResult Delete(NewMovie movie)
         {
-            _context.NewMovies.Remove(movie);
+            _context.Movies.Remove(movie);
             _context.SaveChanges();
 
             return RedirectToAction("MovieList");

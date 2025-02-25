@@ -26,7 +26,7 @@ namespace Mission06_Hair.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NewMovies",
+                name: "Movies",
                 columns: table => new
                 {
                     MovieID = table.Column<int>(type: "INTEGER", nullable: false)
@@ -34,18 +34,18 @@ namespace Mission06_Hair.Migrations
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
-                    Director = table.Column<string>(type: "TEXT", nullable: false),
-                    Rating = table.Column<string>(type: "TEXT", nullable: false),
+                    Director = table.Column<string>(type: "TEXT", nullable: true),
+                    Rating = table.Column<string>(type: "TEXT", nullable: true),
                     Edited = table.Column<bool>(type: "INTEGER", nullable: false),
                     LentTo = table.Column<string>(type: "TEXT", nullable: true),
-                    CopyToPlex = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CopiedToPlex = table.Column<bool>(type: "INTEGER", nullable: false),
                     Notes = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_NewMovies", x => x.MovieID);
+                    table.PrimaryKey("PK_Movies", x => x.MovieID);
                     table.ForeignKey(
-                        name: "FK_NewMovies_Categories_CategoryId",
+                        name: "FK_Movies_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
@@ -68,8 +68,8 @@ namespace Mission06_Hair.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_NewMovies_CategoryId",
-                table: "NewMovies",
+                name: "IX_Movies_CategoryId",
+                table: "Movies",
                 column: "CategoryId");
         }
 
@@ -77,7 +77,7 @@ namespace Mission06_Hair.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "NewMovies");
+                name: "Movies");
 
             migrationBuilder.DropTable(
                 name: "Categories");

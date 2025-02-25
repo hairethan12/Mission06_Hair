@@ -82,11 +82,10 @@ namespace Mission06_Hair.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("CopyToPlex")
+                    b.Property<bool>("CopiedToPlex")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Edited")
@@ -99,7 +98,6 @@ namespace Mission06_Hair.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -113,7 +111,7 @@ namespace Mission06_Hair.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("NewMovies");
+                    b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("Mission06_Hair.Models.NewMovie", b =>
